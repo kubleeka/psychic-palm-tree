@@ -1,0 +1,45 @@
+import random
+print('First one to 3 points wins!')
+you=0
+computer=0
+bestof=3
+while computer<bestof and you<bestof:
+    throw=input("Choose rock (r), paper (p), or scissors (s): ")
+    result=random.randint(0,2)
+    if result==0:
+        print('Computer threw rock')
+        if throw=='r':
+            None
+        elif throw=='p':
+            you+=1
+        else:
+            computer+=1
+    elif result==1:
+        print('Computer threw paper')
+        if throw=='p':
+            None
+        elif throw=='s':
+            you+=1
+        else:
+            computer+=1
+    else:
+        print('Computer threw scissors')
+        if throw=='s':
+            None
+        elif throw=='r':
+            you+=1
+        else:
+            computer+=1
+    print('Computer: {} You: {}'.format(computer, you))
+    print(' ')
+    if you==bestof:
+        print('You win!')
+    elif computer==bestof:
+        print('You lost :(')
+        cont=input('Go for {}? (y/n):'.format(bestof+2))
+        if cont=='y':
+            bestof+=2
+            print(' ')
+            
+
+
