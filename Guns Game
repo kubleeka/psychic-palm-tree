@@ -1,4 +1,8 @@
-#python 3 code
+'''RULES
+This is a computerized version of a game called 'Guns' or 'Slap-Slap-Draw' in middle school. Two players face each other 
+and slap their legs rhythmically and simultaneously, to a beat of slap-slap-move.
+When you move, you can either fire, reload, or block. The goal is to fire, with at least one bullet on hand, while your 
+opponent reloads. If both players fire at once, and both have bullets, the game just continues. No one dies.'''
 
 import random
 yourammo=0
