@@ -1,0 +1,70 @@
+#python 3 code
+
+import random
+yourammo=0
+compammo=0
+
+def youfire():
+    if yourmove==1 and yourammo>0:
+        return True
+
+def youblock():
+    if yourmove==3 or youfire()==True:
+        return True
+
+def fixer(x):
+    try:
+        x=int(x)
+        if x in {1, 2, 3}:
+            return x
+        else:
+            return 0
+    except ValueError:
+        return 0
+
+
+while True:
+    #take moves block
+    yourmove=fixer(input('Fire(1), Reload(2) or Block(3): '))
+    if yourmove==0:
+        print('You did nothing')
+        
+    if compammo==0 and yourammo==0:
+        compmove=2
+    elif compammo==0:
+        compmove=random.randint(2, 3)
+    elif yourammo==0:
+        compmove=random.randint(1, 2)
+    else:
+        compmove=random.randint(1, 3)
+
+    #consequences block
+    if youfire()==True and compmove==2:
+        print('Computer reloaded')
+        print('Your foe is dead, you win!')
+        break
+    elif compmove==1 and youblock()!=True:
+        print('Computer fired')
+        print('You\'ve been shot dead, you lose.')
+        break
+    elif yourmove==1 and yourammo==0:
+        print('You\'re out of ammo!')
+
+    #ammo management block       
+    if compmove==1:
+        print('Computer fired')
+        compammo-=1
+    elif compmove==2:
+        print('Computer reloaded')
+        compammo+=1
+    elif compmove==3:
+        print('Computer blocked')
+        
+    if yourmove==2:
+        yourammo+=1
+    elif youfire()==True:
+        yourammo-=1
+
+
+    print(' ')
+        
