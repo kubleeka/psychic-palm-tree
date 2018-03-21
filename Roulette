@@ -1,0 +1,31 @@
+import random
+import math
+go_on=str('y')
+balance=100
+print('You have $100 to start.')
+while go_on==str('y'):
+    number=int(input('What number would you like to bet on? '))
+    bet=abs(int(input('How much would you like to bet on {}? '.format(number))))
+
+    while bet>balance:
+        print("You don't have that much, you only have ${}".format(balance))
+        bet=abs(int(input('How much would you like to bet on {}? '.format(number))))
+
+    result=random.randint(0,36)
+    print('It landed on {}'.format(result))
+    if result==number:
+        balance+=bet
+    else:
+       balance-=bet
+
+    print("You now have ${}".format(balance))
+    if balance==0:
+        print("Sorry, looks like you're out of money :(")
+        exit()
+    go_on=input('Do you want to continue? (y/n)')
+    if go_on==str('n'):
+        if balance-100>0:
+            print('You won ${}!'.format(balance-100))
+        elif balance-100<0:
+            print('You lost ${} :('.format(100-balance))
+        exit()
